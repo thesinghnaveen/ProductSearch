@@ -1,0 +1,45 @@
+﻿@model List<Product>
+
+@{
+    ViewBag.Title = "Product Search";
+}
+<h2>Product Search</h2>
+
+@using (Html.BeginForm("SearchProducts", "Product", FormMethod.Post))
+{
+    <!-- Add input fields for each search criteria -->
+
+    <button type="submit">Search</button>
+    <button type="button" onclick="clearSearch()">Clear</button>
+}
+
+<!-- Display search results in a table -->
+<table>
+    <!-- Table headers -->
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Mfg Date</th>
+        <th>Category</th>
+    </tr>
+    <!-- Table rows -->
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.ProductId</td>
+            <td>@product.ProductName</td>
+            <td>@product.Size</td>
+            <td>@product.Price</td>
+            <td>@product.MfgDate</td>
+            <td>@product.Category</td>
+        </tr>
+    }
+</table>
+
+<script>
+    function clearSearch() {
+        // Implement logic to clear search criteria
+    }
+</script>
